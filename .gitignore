@@ -1,0 +1,7 @@
+# react
+node_modules/
+
+# extensions
+*.DS_Store
+*.pack
+*.icloud
