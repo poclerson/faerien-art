@@ -1,0 +1,18 @@
+@import './sass/variables.scss';
+
+* {
+
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, input {
+    color: map-get($couleurs, texte)
+}
+
+h1, h2 {
+    font-family: 'Cardinal', serif;
+    font-family: 'Cardinal Alternate', serif;
+}
