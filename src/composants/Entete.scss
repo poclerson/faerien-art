@@ -1,5 +1,13 @@
+@import '../sass/variables.scss';
+
 .Entete {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 60px;
+    top: 0;
+    background-color: map-get($couleurs, clair);
 }

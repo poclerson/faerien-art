@@ -1,3 +1,27 @@
+@import '../sass/variables.scss';
+
 .Banniere {
-    
+    width: 100%;
+    height: 100vh;
+    padding: 10%;
+    box-sizing: border-box;
+
+    .texte {
+        position: absolute;
+        top: 20%;
+        width: 80%;
+
+        display: flex;
+        flex-direction: column;
+
+        .bloc {
+            background-color: map-get($couleurs, clair-transparent);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .titre {
+            color: map-get($couleurs, clair);
+        }
+    }
 }
