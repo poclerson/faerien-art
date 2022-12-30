@@ -1,3 +1,11 @@
 .Accueil {
-    
+    .titre,
+    .titre-description {
+        text-align: center;
+    }
+
+    .liste-projets {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

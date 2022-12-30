@@ -1,3 +1,46 @@
-@mixin boite-texte {
-    
+@import './variables.scss';
+
+@mixin texte-dynamique-general($proprietes, $selecteur, $diviseur: 1) {
+    #{$selecteur} {
+        font-size: map-get($proprietes, taille) / $diviseur;
+        margin-block-start: map-get($proprietes, taille) / 4 / $diviseur;
+        margin-block-end: map-get($proprietes, taille) / 4 / $diviseur;
+        @if map-has-key($proprietes, hauteur-ligne) {
+            line-height: map-get($proprietes, hauteur-ligne) / $diviseur;
+        }
+        @if map-has-key($proprietes, espace-mots) {
+            word-spacing: map-get($proprietes, espace-mots) / $diviseur;
+        }
+    }
+}
+
+// Transforme une map de textes et génère des media queries
+@mixin texte-dynamique($selecteurs) {
+    @each $selecteur, $tailles-ecran in $selecteurs {
+        @each $taille-ecran, $proprietes in $tailles-ecran {
+            @media screen and (min-width: $taille-ecran) {
+                @if ($selecteur == svg) {
+                    #{$selecteur}, .Icone {
+                        width: map-get($proprietes, taille);
+                        height: map-get($proprietes, taille);
+                    }
+                }
+                @else {
+                    @include texte-dynamique-general($proprietes, $selecteur);
+                }
+            }
+        }
+    }
+}
+
+@mixin tablette {
+    @media screen and (min-width: map-get($largeurs-ecran, tablette)) {
+        @content;
+    }
+}
+
+@mixin ordinateur {
+    @media screen and (min-width: map-get($largeurs-ecran, ordinateur)) {
+        @content;
+    }
 }

@@ -5,5 +5,13 @@
         margin-top: 60px;
         display: flex;
         flex-direction: column;
+
+        > .contenu {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
     }
 }

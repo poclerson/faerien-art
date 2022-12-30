@@ -1,4 +1,9 @@
 @import './sass/variables.scss';
+@import './sass/mixins.scss';
+
+html {
+    @include texte-dynamique($tailles-textes);
+}
 
 body {
     margin: 0;
