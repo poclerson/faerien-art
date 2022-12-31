@@ -1,3 +1,21 @@
-.Projet {
+@import '../sass/mixins.scss';
 
+.Projet {
+    flex: 1 0 100%;
+
+    @include tablette {
+        flex: 0 1 50%;
+    }
+
+    &, img {
+        width: 100%;
+    }
+
+    .miniature {
+
+    }
+
+    .contenu {
+
+    }
 }

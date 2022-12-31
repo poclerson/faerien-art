@@ -1,13 +1,9 @@
 import './Accueil.scss';
 
-import useOuvertures from '../hooks/useOuvertures';
-
 import Banniere from './Banniere';
-import Projet from './Projet';
+import {Outlet, Link} from 'react-router-dom';
 
-export default function Accueil() {
-    const {surClic, verifierOuverture} = useOuvertures([1, 2, 3]);
-    
+export default function Accueil({donnees}) {
     return (
         <section className="Accueil">
             <Banniere titre="" />
@@ -15,11 +11,16 @@ export default function Accueil() {
                 <h1 className="titre">Les projets</h1>
                 <h4 className="titre-description">[Découvrez nos projets, progrès et objectifs.]</h4>
                 <ul className="liste-projets">
-                    <Projet />
-                    <Projet />
-                    <Projet />
+                    {donnees.map(donnee => 
+                        <Link key={donnee.id} to={donnee.id}>
+                            <h1 className="titre">{donnee.nom}</h1>
+                            {/* <img src="projet.webp" alt=""/> */}
+                        </Link>
+                    )}
+                    
                 </ul>
             </div>
+            <Outlet context={donnees} />
         </section>
     )
 }

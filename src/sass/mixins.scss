@@ -33,6 +33,52 @@
     }
 }
 
+@mixin gerer-ouverture(
+    $ouvert: '', 
+    $ferme: '', 
+    $valeur-quand-ouvert: flex,
+    $valeur-quand-ferme: flex
+) {
+    @if $ouvert != '' && $ferme != '' {
+        &[ouvert="true"] {
+            #{$ouvert} {
+                display: $valeur-quand-ouvert;
+            }
+
+            #{$ferme} { 
+                display: none;
+            }
+        }
+        &[ouvert="false"] {
+            #{$ferme} {
+                display: $valeur-quand-ferme;
+            }
+
+            #{$ouvert} { 
+                display: none;
+            }
+        }
+    }
+
+    @else {
+        &[ouvert="true"] {
+            display: $valeur-quand-ouvert;
+        }
+        &[ouvert="false"] {
+            display: none;
+        }
+    }
+}
+
+@mixin gerer-ouverture-conteneur() {
+    &[item-ouvert="true"] {
+        [ouvert="false"] {
+            display: none;
+            border: 5px solid red;
+        }
+    }
+}
+
 @mixin tablette {
     @media screen and (min-width: map-get($largeurs-ecran, tablette)) {
         @content;

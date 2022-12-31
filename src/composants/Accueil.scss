@@ -1,3 +1,5 @@
+@import '../sass/mixins.scss';
+
 .Accueil {
     .titre,
     .titre-description {
@@ -5,7 +7,16 @@
     }
 
     .liste-projets {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5%;
+
+        @include tablette {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include ordinateur {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }

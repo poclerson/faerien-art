@@ -18,6 +18,7 @@ export default function useOuverture(donnees, ouvertureInitiale = -1) {
      * @param {Callback} callback Fonction à effectuer, s'il y en a une
      */
     const surClic = (index, callback) => {
+        console.log(index)
         if (callback != undefined) callback()
 
         setIndexOuvert(index);
