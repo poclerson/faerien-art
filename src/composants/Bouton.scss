@@ -1,0 +1,20 @@
+@import '../sass/variables.scss/';
+
+.Bouton {
+    width: min-content;
+
+    .texte {
+        width: min-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid map-get($couleurs, texte);
+        border-radius: 100%;
+        padding: 1rem;
+
+        .titre {
+            white-space: nowrap;
+        }
+    }
+}

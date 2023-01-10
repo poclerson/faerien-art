@@ -11,11 +11,11 @@
         grid-template-columns: 1fr;
         gap: 5%;
 
-        @include tablette {
+        @include media(tablette) {
             grid-template-columns: 1fr 1fr;
         }
 
-        @include ordinateur {
+        @include media(ordinateur) {
             grid-template-columns: 1fr 1fr 1fr;
         }
     }

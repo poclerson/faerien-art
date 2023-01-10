@@ -1,0 +1,20 @@
+@import '../sass/variables.scss';
+
+.Retour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    .rond {
+        width: 30px;
+        padding: .5rem;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        background-color: map-get($couleurs, clair);
+    }
+
+    svg {
+        position: absolute;
+    }
+}

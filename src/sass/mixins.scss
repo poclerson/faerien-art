@@ -79,14 +79,28 @@
     }
 }
 
-@mixin tablette {
-    @media screen and (min-width: map-get($largeurs-ecran, tablette)) {
-        @content;
+@mixin hauteur-header($propriete) {
+    #{$propriete}: map-get($hauteurs-header, mobile);
+
+    @include media(tablette) {
+        #{$propriete}: map-get($hauteurs-header, tablette);
+    }
+
+    @include media(ordinateur) {
+        #{$propriete}: map-get($hauteurs-header, ordinateur);
     }
 }
 
-@mixin ordinateur {
-    @media screen and (min-width: map-get($largeurs-ecran, ordinateur)) {
-        @content;
+@mixin media($media) {
+    @if $media == tablette {
+        @media screen and (min-width: map-get($largeurs-ecran, tablette)) {
+            @content;
+        }
+    }
+
+    @else if $media == ordinateur {
+        @media screen and (min-width: map-get($largeurs-ecran, ordinateur)) {
+            @content;
+        }
     }
 }

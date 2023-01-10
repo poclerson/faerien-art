@@ -5,33 +5,29 @@ import Accueil from './composants/Accueil';
 import Contact from './composants/Contact';
 import Origine from './composants/Origine';
 import Projet from './composants/Projet';
+import useObtenirMultiples from './hooks/useObtenir';
+import DonneesSiteContexte from './Contexte';
 
 export default function App() {
-    const donnees = [
-        {
-            id: "1",
-            nom: "allo",
-        },
-        {
-            id: "2",
-            nom: "salut",
-        },
-        {
-            id: "3",
-            nom: "bonjour",
-        },
-    ]
+    const donnees = useObtenirMultiples([
+        '/projets'
+    ])
     return (
         <div className="App">
-            <Header />
-            <Routes>
-                {/* <Route exact path={'/*'} element={<Navigate to='/accueil' />} /> */}
-                <Route path='/' element={<Accueil donnees={donnees} />}>
-                </Route>
-                <Route path=':donneeId' element={<Projet donnees={donnees} />} />
-                <Route path='/contact' element={<Contact />} />
-                <Route path='/origine' element={<Origine />} />
-            </Routes>
+            {donnees &&
+                <DonneesSiteContexte.Provider value={donnees}>   
+                {console.log(donnees)}
+                    <Header />
+                    <Routes>
+                        {/* <Route exact path={'/*'} element={<Navigate to='/accueil' />} /> */}
+                        <Route path='/' element={<Accueil donnees={donnees} />}>
+                        </Route>
+                        <Route path=':donneeId' element={<Projet donnees={donnees} />} />
+                        <Route path='/contact' element={<Contact />} />
+                        <Route path='/origine' element={<Origine />} />
+                    </Routes>
+                </DonneesSiteContexte.Provider>
+            }
         </div>
     );
 }
