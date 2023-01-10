@@ -19,7 +19,7 @@
         align-items: center;
         gap: 2.5vh;
 
-        .bloc {
+        .bloc, .sous-titre {
             background-color: map-get($couleurs, clair-transparent);
             padding: 20px;
             border-radius: 10px;

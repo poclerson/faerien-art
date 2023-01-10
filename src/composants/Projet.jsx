@@ -2,7 +2,8 @@ import './Projet.scss';
 
 import Banniere from './Banniere';
 import Retour from './Retour';
-import Bouton from './Bouton';
+import SectionTexte from './SectionTexte';
+import SectionImage from './SectionImage';
 
 import {useParams} from 'react-router-dom'
 
@@ -15,20 +16,35 @@ export default function Projet({donnees}) {
         <li className="Projet">
             <Banniere 
                 titre={projet.acf.titre} 
+                sousTitre={projet.acf.slogan}
                 image={projet.acf.image_de_presentation}
-                blocs={[projet.acf.slogan, projet.acf.description]} 
+                blocs={[projet.acf.description]} 
             />
             <div className="contenu">
-                <div className="rangee rangee-1">
-                    <img src={projet.acf.section_1_image} alt=""/>
-                    <div className="information">
-                        <Bouton 
-                            titre={projet.acf.section_1_bouton}
-                            lien={projet.acf.section_1_lien_du_bouton}
-                        />
-                        <p className="texte">{projet.acf.section_1_texte}</p>
-                    </div>
-                </div>
+                {projet.acf.sections.includes("1") &&
+                    <SectionTexte 
+                        image={projet.acf.section_1_image}
+                        titreBouton={projet.acf.section_1_bouton}
+                        sousTitreBouton={projet.acf.section_1_sous_titre_bouton}
+                        lienBouton={projet.acf.section_1_lien_du_bouton}
+                        texte={projet.acf.section_1_texte}
+                    />
+                }
+                {projet.acf.sections.includes("2") &&
+                    <SectionImage 
+                        image={projet.acf.section_2_image}
+                    />
+                }
+                {projet.acf.sections.includes("3") &&
+                    <SectionTexte 
+                        image={projet.acf.section_3_image}
+                        titreBouton={projet.acf.section_3_bouton}
+                        sousTitreBouton={projet.acf.section_3_sous_titre_bouton}
+                        lienBouton={projet.acf.section_3_lien_du_bouton}
+                        texte={projet.acf.section_3_texte}
+                        direction={"inverse"}
+                    />
+                }
             </div>
             <Retour lien={'/'} />
         </li>

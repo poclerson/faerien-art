@@ -18,5 +18,20 @@
         @include media(ordinateur) {
             grid-template-columns: 1fr 1fr 1fr;
         }
+
+        .miniature-projet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            aspect-ratio: 1;
+            background-position: center;
+            background-size: 200%;
+            transition: all .1s ease-in-out;
+
+            &:hover {
+                background-size: 225%;
+            }
+        }
     }
 }

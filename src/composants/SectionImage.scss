@@ -1,0 +1,14 @@
+@import '../sass/mixins.scss';
+
+.SectionImage {
+    img {
+        width: 200vw;
+    }
+
+    overflow-x: scroll;
+
+    @include media(tablette) {
+        width: 100%;
+        overflow: hidden;
+    }
+}

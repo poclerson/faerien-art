@@ -16,8 +16,14 @@ export default function Accueil() {
                 <h4 className="titre-description">[Découvrez nos projets, progrès et objectifs.]</h4>
                 <ul className="liste-projets">
                     {projets.map(projet => 
-                        <Link key={projet.id} to={projet.id + ""}>
-                            {console.log(projet.id)}
+                        <Link 
+                            key={projet.id} 
+                            to={projet.id + ""} 
+                            className="miniature-projet"
+                            style={{
+                                backgroundImage: `url(${projet.acf.image_de_presentation})`
+                            }}
+                        >
                             <h1 className="titre">{projet.acf.titre}</h1>
                         </Link>
                     )}
