@@ -25,6 +25,18 @@
             border-radius: 10px;
         }
 
+        .bloc {
+            width: 80%;
+
+            &:nth-child(odd) {
+                align-self: flex-start;
+            }
+
+            &:nth-child(even) {
+                align-self: flex-end;
+            }
+        }
+
         .titre {
             color: map-get($couleurs, clair);
         }

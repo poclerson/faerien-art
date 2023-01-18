@@ -6,11 +6,11 @@ import DonneesSiteContexte from '../Contexte';
 import {useContext} from 'react';
 
 export default function Accueil() {
-    const {projets} = useContext(DonneesSiteContexte);
+    const {projets, blocs_accueil} = useContext(DonneesSiteContexte);
     return (
         projets &&
         <section className="Accueil">
-            <Banniere titre="" />
+            <Banniere titre="Faerien art" blocs={blocs_accueil.map(bloc => bloc.acf.texte)} />
             <div className="contenu">
                 <h1 className="titre">Les projets</h1>
                 <h4 className="titre-description">[Découvrez nos projets, progrès et objectifs.]</h4>

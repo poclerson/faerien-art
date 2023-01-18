@@ -1,4 +1,5 @@
 @import '../sass/mixins.scss';
+@import '../sass/variables.scss';
 
 .Accueil {
     .titre,
@@ -31,6 +32,10 @@
 
             &:hover {
                 background-size: 225%;
+            }
+
+            .titre {
+                color: map-get($couleurs, clair);
             }
         }
     }

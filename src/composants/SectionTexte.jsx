@@ -6,6 +6,7 @@ export default function SectionTexte({
     image,
     titreBouton,
     sousTitreBouton,
+    utiliserHTMLBouton,
     lienBouton,
     texte,
     direction = "normale"
@@ -17,6 +18,7 @@ export default function SectionTexte({
                 <Bouton 
                     titre={titreBouton}
                     sousTitre={sousTitreBouton}
+                    utiliserHTML={utiliserHTMLBouton}
                     lien={lienBouton}
                 />
                 <p className="texte">{texte}</p>

@@ -26,6 +26,7 @@ export default function Projet({donnees}) {
                         image={projet.acf.section_1_image}
                         titreBouton={projet.acf.section_1_bouton}
                         sousTitreBouton={projet.acf.section_1_sous_titre_bouton}
+                        utiliserHTMLBouton={projet.acf.section_1_remplacer_le_bouton_par_du_html}
                         lienBouton={projet.acf.section_1_lien_du_bouton}
                         texte={projet.acf.section_1_texte}
                     />
