@@ -79,15 +79,15 @@
     }
 }
 
-@mixin hauteur-header($propriete) {
-    #{$propriete}: map-get($hauteurs-header, mobile);
+@mixin hauteur-header($propriete, $offset: 0) {
+    #{$propriete}: $offset - map-get($hauteurs-header, mobile);
 
     @include media(tablette) {
-        #{$propriete}: map-get($hauteurs-header, tablette);
+        #{$propriete}: $offset - map-get($hauteurs-header, tablette);
     }
 
     @include media(ordinateur) {
-        #{$propriete}: map-get($hauteurs-header, ordinateur);
+        #{$propriete}: $offset - map-get($hauteurs-header, ordinateur);
     }
 }
 
