@@ -5,12 +5,16 @@ import {Outlet, Link} from 'react-router-dom';
 import DonneesSiteContexte from '../Contexte';
 import {useContext} from 'react';
 
-export default function Accueil() {
+export default function Accueil({imgBanniere}) {
     const {projets, blocs_accueil} = useContext(DonneesSiteContexte);
     return (
         projets &&
         <section className="Accueil">
-            <Banniere titre="Faerien art" blocs={blocs_accueil.map(bloc => bloc.acf.texte)} />
+            <Banniere 
+                titre="Faerien art" 
+                blocs={blocs_accueil.map(bloc => bloc.acf.texte)} 
+                image={imgBanniere}
+            />
             <div className="contenu">
                 <h1 className="titre">Les projets</h1>
                 <h4 className="titre-description">[Découvrez nos projets, progrès et objectifs.]</h4>

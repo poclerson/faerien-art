@@ -15,8 +15,14 @@ export default function App() {
     const donnees = useObtenirMultiples([
         '/projets',
         '/blocs_origine',
-        '/blocs_accueil'
+        '/blocs_accueil',
+        '/pages'
     ])
+
+    const urlBanniere = (pages, slug) => {
+        return pages.filter(page => page.slug == slug)[0].acf.banniere;
+    }
+    
     return (
         <div className="App">
             {donnees &&
@@ -24,11 +30,20 @@ export default function App() {
                     <Entete />
                     <Routes>
                         {/* <Route exact path={'/*'} element={<Navigate to='/accueil' />} /> */}
-                        <Route path='/' element={<Accueil donnees={donnees} />}>
+                        <Route path='/' element={
+                            <Accueil 
+                                donnees={donnees}  
+                                imgBanniere={urlBanniere(donnees.pages, 'accueil')} 
+                            />
+                        }>
                         </Route>
                         <Route path=':donneeId' element={<Projet donnees={donnees} />} />
-                        <Route path='/contact' element={<Contact />} />
-                        <Route path='/origine' element={<Origine />} />
+                        <Route path='/contact' element={
+                            <Contact imgBanniere={urlBanniere(donnees.pages, 'contact')}  />
+                        } />
+                        <Route path='/origine' element={
+                            <Origine imgBanniere={urlBanniere(donnees.pages, 'origine')}  />
+                        } />
                     </Routes>
                     <PiedPage />
                 </DonneesSiteContexte.Provider>
