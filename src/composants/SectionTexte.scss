@@ -1,6 +1,7 @@
 @import '../sass/mixins.scss';
 
 .SectionTexte {
+    padding: 2rem 0;
     > * {
         flex: 0 0 calc(50% - .5rem);
     }

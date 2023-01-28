@@ -11,9 +11,10 @@ export default function Origine({imgBanniere}) {
     return (
         <section className="Origine">
             <Banniere 
-                titre="Origine" 
+                titre="Contact" 
+                sousTitre="Origine"
                 image={imgBanniere}
-                blocs={blocs_origine.map(bloc => bloc.acf.texte)}
+                blocs={blocs_origine.map(bloc => bloc.acf)}
             />
         </section>
     )

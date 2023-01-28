@@ -7,8 +7,11 @@
 
     overflow-x: scroll;
 
-    @include media(tablette) {
-        width: 100%;
+    @include media(ordinateur) {
+        padding: 5rem 0;
+        img {
+            width: 100%;
+        }
         overflow: hidden;
     }
 }

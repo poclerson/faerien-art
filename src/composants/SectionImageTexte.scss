@@ -1,0 +1,19 @@
+@import '../sass/variables.scss';
+
+.SectionImageTexte {
+    width: 100%;
+    min-height: 40rem;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .informations {
+        background-color: map-get($couleurs, clair-transparent);
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(7px);
+        filter: drop-shadow(2.5px 2.5px 1px rgba(0, 0, 0, 0.2));
+    }
+}

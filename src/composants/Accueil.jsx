@@ -12,29 +12,35 @@ export default function Accueil({imgBanniere}) {
         <section className="Accueil">
             <Banniere 
                 titre="Faerien art" 
-                blocs={blocs_accueil.map(bloc => bloc.acf.texte)} 
+                blocs={blocs_accueil.map(bloc => bloc.acf)} 
                 image={imgBanniere}
             />
             <div className="contenu">
                 <h1 className="titre">Les projets</h1>
-                <h4 className="titre-description">[Découvrez nos projets, progrès et objectifs.]</h4>
+                <h4 className="titre-description">[EXPLORER ET SOUTENIR]</h4>
                 <ul className="liste-projets">
                     {projets.map(projet => 
                         <Link 
                             key={projet.id} 
                             to={projet.id + ""} 
                             className="miniature-projet"
-                            style={{
-                                backgroundImage: `url(${projet.acf.image_de_presentation})`
-                            }}
                         >
-                            <h1 className="titre">{projet.acf.titre}</h1>
+                            <div 
+                                className="image-titre-projet"
+                                style={{
+                                    backgroundImage: `url(${projet.acf.image_de_presentation})`
+                                }}
+                            >
+                                <h1 className="titre">{projet.acf.titre}</h1>
+                            </div>
+                            <h4 className="sous-titre">{projet.acf.sous_titre}</h4>
                         </Link>
                     )}
                     
                 </ul>
             </div>
             <Outlet context={projets} />
+            
         </section>
     )
 }

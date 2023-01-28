@@ -4,8 +4,10 @@ import Banniere from './Banniere';
 import Retour from './Retour';
 import SectionTexte from './SectionTexte';
 import SectionImage from './SectionImage';
+import SectionImageTexte from './SectionImageTexte';
 
 import {useParams} from 'react-router-dom'
+import parse from 'html-react-parser'
 
 export default function Projet({donnees}) {
     const id = useParams();
@@ -14,6 +16,7 @@ export default function Projet({donnees}) {
 
     return (
         <li className="Projet">
+            {console.log(projet.acf.sections)}
             <Banniere 
                 titre={projet.acf.titre} 
                 sousTitre={projet.acf.slogan}
@@ -24,11 +27,12 @@ export default function Projet({donnees}) {
                 {projet.acf.sections.includes("1") &&
                     <SectionTexte 
                         image={projet.acf.section_1_image}
+                        sousTitre={projet.acf.section_1_sous_titre}
+                        texte={projet.acf.section_1_texte}
                         titreBouton={projet.acf.section_1_bouton}
                         sousTitreBouton={projet.acf.section_1_sous_titre_bouton}
                         utiliserHTMLBouton={projet.acf.section_1_remplacer_le_bouton_par_du_html}
                         lienBouton={projet.acf.section_1_lien_du_bouton}
-                        texte={projet.acf.section_1_texte}
                     />
                 }
                 {projet.acf.sections.includes("2") &&
@@ -39,11 +43,27 @@ export default function Projet({donnees}) {
                 {projet.acf.sections.includes("3") &&
                     <SectionTexte 
                         image={projet.acf.section_3_image}
+                        sousTitre={projet.acf.section_3_sous_titre}
+                        texte={projet.acf.section_3_texte}
                         titreBouton={projet.acf.section_3_bouton}
                         sousTitreBouton={projet.acf.section_3_sous_titre_bouton}
+                        utiliserHTMLBouton={projet.acf.section_3_remplacer_le_bouton_par_du_html}
                         lienBouton={projet.acf.section_3_lien_du_bouton}
-                        texte={projet.acf.section_3_texte}
                         direction={"inverse"}
+                    />
+                }
+                {projet.acf.sections.includes("4") &&
+                    <SectionTexte 
+                        image={projet.acf.section_4_image}
+                        sousTitre={projet.acf.section_4_sous_titre}
+                        texte={projet.acf.section_4_texte}
+                    />
+                }
+                {projet.acf.sections.includes("5") &&
+                    <SectionImageTexte 
+                        image={projet.acf.section_5_image}
+                        sousTitre={projet.acf.section_5_sous_titre}
+                        texte={projet.acf.section_5_texte}
                     />
                 }
             </div>

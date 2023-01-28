@@ -38,9 +38,6 @@ export default function App() {
                         }>
                         </Route>
                         <Route path=':donneeId' element={<Projet donnees={donnees} />} />
-                        <Route path='/contact' element={
-                            <Contact imgBanniere={urlBanniere(donnees.pages, 'contact')}  />
-                        } />
                         <Route path='/origine' element={
                             <Origine imgBanniere={urlBanniere(donnees.pages, 'origine')}  />
                         } />
