@@ -30,3 +30,10 @@ h1, h2, h3 {
 p {
     text-align: justify;
 }
+
+.une-ligne {
+    white-space: nowrap;
+    display: inline-block;
+    clear: both;
+    line-break: strict;
+}

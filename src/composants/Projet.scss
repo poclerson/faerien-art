@@ -39,7 +39,7 @@
             @include media(ordinateur) {
                 flex-direction: row;
 
-                &[direction="inverse"] {
+                &[cote="gauche"] {
                     flex-direction: row-reverse;
                 }
             }

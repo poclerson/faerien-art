@@ -2,29 +2,35 @@ import './SectionTexte.scss'
 
 import Bouton from './Bouton';
 
+import parse from 'html-react-parser';
+
 export default function SectionTexte({
     image,
     texte,
     sousTitre,
-    titreBouton,
-    sousTitreBouton,
-    utiliserHTMLBouton,
+    bouton,
     lienBouton,
-    direction = "normale"
+    coteImage = "droite"
 }) {
     return (
-        <div className="SectionTexte rangee" direction={direction}>
+        <div className="SectionTexte rangee" cote={coteImage}>
             <img src={image} alt=""/>
             <div className="information">
                 <div className="bloc-sur-bouton">
                     <h4 className="sous-titre">{sousTitre}</h4>
-                    <p className="texte">{texte}</p>
+                    <p className="texte">{texte[0] == '<' ? 
+                        <ul className="texte-liste">
+                            {parse(texte.replaceAll(
+                                '<p>', '<li class="item-liste">'
+                            ).replaceAll('</p>', '</li>'))}
+                        </ul>
+                        :
+                        texte
+                    }</p>
                 </div>
-                {titreBouton && 
+                {bouton && 
                     <Bouton 
-                        titre={titreBouton}
-                        sousTitre={sousTitreBouton}
-                        utiliserHTML={utiliserHTMLBouton}
+                        titre={bouton}
                         lien={lienBouton}
                     />
                 }

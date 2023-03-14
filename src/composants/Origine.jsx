@@ -14,7 +14,9 @@ export default function Origine({imgBanniere}) {
                 titre="Contact" 
                 sousTitre="Origine"
                 image={imgBanniere}
-                blocs={blocs_origine.map(bloc => bloc.acf)}
+                blocs={blocs_origine.map(bloc => bloc.acf).filter((bloc, index) => index <= 1)}
+                titrePremier={false}
+                blocs2={blocs_origine.map(bloc => bloc.acf).filter((bloc, index) => index > 1)}
             />
         </section>
     )

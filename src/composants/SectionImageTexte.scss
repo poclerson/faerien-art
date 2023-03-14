@@ -10,6 +10,7 @@
     justify-content: center;
 
     .informations {
+        width: 80%;
         background-color: map-get($couleurs, clair-transparent);
         padding: 20px;
         border-radius: 10px;

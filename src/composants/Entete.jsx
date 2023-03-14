@@ -8,8 +8,9 @@ export default function Entete() {
             <Link to='/'>
                 <h2 className="titre">Faerien Art</h2>
             </Link>
+            <img src="/logo.webp" alt="" className="logo"/>
             <Link to='/origine'>
-                <h3 className="sous-titre">Contact</h3>
+                <h2 className="sous-titre">Contact</h2>
             </Link>
         </header>
     )

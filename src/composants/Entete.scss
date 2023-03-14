@@ -10,4 +10,8 @@
     height: 60px;
     top: 0;
     background-color: map-get($couleurs, clair);
+
+    .logo {
+        height: 75%;
+    }
 }

@@ -16,7 +16,8 @@ export default function App() {
         '/projets',
         '/blocs_origine',
         '/blocs_accueil',
-        '/pages'
+        '/pages',
+        '/sections'
     ])
 
     const urlBanniere = (pages, slug) => {

@@ -5,18 +5,20 @@ import Retour from './Retour';
 import SectionTexte from './SectionTexte';
 import SectionImage from './SectionImage';
 import SectionImageTexte from './SectionImageTexte';
+import useObtenirParID from '../hooks/useObtenirParID'
 
 import {useParams} from 'react-router-dom'
-import parse from 'html-react-parser'
 
 export default function Projet({donnees}) {
     const id = useParams();
 
-    const projet = donnees.projets.filter(_projet => _projet.id == id.donneeId)[0];
+    const projet = donnees.projets.filter(_projet => _projet.acf.titre == id.donneeId)[0];
 
+    const sections = donnees.sections.filter(section =>
+        projet.acf.sections.filter(sectionProjet => sectionProjet.id == section.id)
+    );
     return (
         <li className="Projet">
-            {console.log(projet.acf.sections)}
             <Banniere 
                 titre={projet.acf.titre} 
                 sousTitre={projet.acf.slogan}
@@ -24,48 +26,29 @@ export default function Projet({donnees}) {
                 blocs={[projet.acf.description]} 
             />
             <div className="contenu">
-                {projet.acf.sections.includes("1") &&
-                    <SectionTexte 
-                        image={projet.acf.section_1_image}
-                        sousTitre={projet.acf.section_1_sous_titre}
-                        texte={projet.acf.section_1_texte}
-                        titreBouton={projet.acf.section_1_bouton}
-                        sousTitreBouton={projet.acf.section_1_sous_titre_bouton}
-                        utiliserHTMLBouton={projet.acf.section_1_remplacer_le_bouton_par_du_html}
-                        lienBouton={projet.acf.section_1_lien_du_bouton}
-                    />
-                }
-                {projet.acf.sections.includes("2") &&
-                    <SectionImage 
-                        image={projet.acf.section_2_image}
-                    />
-                }
-                {projet.acf.sections.includes("3") &&
-                    <SectionTexte 
-                        image={projet.acf.section_3_image}
-                        sousTitre={projet.acf.section_3_sous_titre}
-                        texte={projet.acf.section_3_texte}
-                        titreBouton={projet.acf.section_3_bouton}
-                        sousTitreBouton={projet.acf.section_3_sous_titre_bouton}
-                        utiliserHTMLBouton={projet.acf.section_3_remplacer_le_bouton_par_du_html}
-                        lienBouton={projet.acf.section_3_lien_du_bouton}
-                        direction={"inverse"}
-                    />
-                }
-                {projet.acf.sections.includes("4") &&
-                    <SectionTexte 
-                        image={projet.acf.section_4_image}
-                        sousTitre={projet.acf.section_4_sous_titre}
-                        texte={projet.acf.section_4_texte}
-                    />
-                }
-                {projet.acf.sections.includes("5") &&
-                    <SectionImageTexte 
-                        image={projet.acf.section_5_image}
-                        sousTitre={projet.acf.section_5_sous_titre}
-                        texte={projet.acf.section_5_texte}
-                    />
-                }
+                {sections.reverse().map(function(section){
+                    switch (section.acf.section_type) {
+                        case 'texte':
+                            return <SectionTexte
+                                sousTitre={section.acf.titre}
+                                image={section.acf.image}
+                                texte={section.acf.description}
+                                bouton={section.acf.bouton}
+                                lienBouton={section.acf.lien_bouton}
+                                coteImage={section.acf.cote}
+                            />
+                        case 'image':
+                            return <SectionImage
+                                image={section.acf.image}
+                            />
+                        case 'imageTexte':
+                            return <SectionImageTexte
+                                sousTitre={section.acf.titre}
+                                image={section.acf.image}
+                                texte={section.acf.description}
+                            />
+                    }
+                })}
             </div>
             <Retour lien={'/'} />
         </li>

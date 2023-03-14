@@ -4,19 +4,15 @@ import parse from 'html-react-parser';
 
 export default function Bouton({
     titre,
-    sousTitre,
-    lien,
-    utiliserHTML = false
+    lien
 }) {
     return (
-        !utiliserHTML ? 
+        titre[0] == '<' ?
+            parse(titre) :
             <a className="Bouton" href={lien}>
                 <div className="texte">
                     <h3 className="titre">{titre}</h3>
-                    {sousTitre && <h5 className="sous-titre">{sousTitre}</h5>}
                 </div>
             </a>
-        :
-        parse(titre)
     )
 }

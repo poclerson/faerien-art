@@ -22,7 +22,7 @@ export default function Accueil({imgBanniere}) {
                     {projets.map(projet => 
                         <Link 
                             key={projet.id} 
-                            to={projet.id + ""} 
+                            to={projet.acf.titre + ""} 
                             className="miniature-projet"
                         >
                             <div 
