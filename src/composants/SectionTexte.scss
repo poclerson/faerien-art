@@ -8,11 +8,12 @@
 
     img {
         width: 100%;
+        max-height: 70vh;
+        height: 100%;
+        object-fit: contain;
 
         @include media(tablette) {
             width: 50%;
         }
-        height: 100%;
-        object-fit: cover;
     }
 }

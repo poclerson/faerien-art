@@ -104,3 +104,11 @@
         }
     }
 }
+
+@mixin fond-blanc-flou($padding: 10px) {
+    background-color: map-get($couleurs, clair-transparent);
+    padding: $padding;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    filter: drop-shadow(2.5px 2.5px 1px rgba(0, 0, 0, 0.2));
+}

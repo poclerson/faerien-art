@@ -34,7 +34,7 @@ export default function Projet({donnees}) {
                                 image={section.acf.image}
                                 texte={section.acf.description}
                                 bouton={section.acf.bouton}
-                                lienBouton={section.acf.lien_bouton}
+                                lienBouton={section.acf.bouton_lien}
                                 coteImage={section.acf.cote}
                             />
                         case 'image':
