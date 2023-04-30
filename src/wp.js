@@ -1,8 +1,8 @@
-export const url = 'http://faerienart.org';
+export const url = 'https://faerienart.com';
 
 export const cheminsFournisseurs = {
-    hcms: "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer",
-    wp: "/wp-json/better-rest-endpoints/v1%%cheminFinal%%?per_page=100"
+  hcms: "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer",
+  wp: "/wp-json/better-rest-endpoints/v1%%cheminFinal%%?per_page=100"
 };
 
 /**
@@ -13,9 +13,9 @@ export const cheminsFournisseurs = {
  * @returns {string} URL modifiée selon les paramètres de la fonction
  */
 export const traiterRequete = (chemin, fournisseur, parametres) => {
-    if (parametres == undefined)
-        return url + cheminsFournisseurs[fournisseur].replace("%%cheminFinal%%", chemin);
+  if (parametres === undefined)
+    return url + cheminsFournisseurs[fournisseur].replace("%%cheminFinal%%", chemin);
 
-    else
-        return url + cheminsFournisseurs[fournisseur].replace("%%cheminFinal%%", chemin) + parametres;
+  else
+    return url + cheminsFournisseurs[fournisseur].replace("%%cheminFinal%%", chemin) + parametres;
 }

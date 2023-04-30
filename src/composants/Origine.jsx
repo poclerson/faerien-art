@@ -10,6 +10,7 @@ export default function Origine({imgBanniere}) {
 
     return (
         <section className="Origine">
+            {console.log(blocs_origine)}
             <Banniere 
                 titre="Contact" 
                 sousTitre="Origine"
