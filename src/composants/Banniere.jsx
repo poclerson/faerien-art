@@ -7,8 +7,6 @@ export default function Banniere({
   sousTitre,
   image = "/image.jpg",
   blocs = [],
-  titrePremier = true,
-  blocs2
 }) {
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -16,21 +14,12 @@ export default function Banniere({
   return (
     <section className="Banniere" style={{ backgroundImage: `url(${image})` }}>
       <article className="texte">
-        {titre && titrePremier && <h1 className="titre">{titre}</h1>}
-        {sousTitre && titrePremier && <h3 className="sous-titre">{sousTitre}</h3>}
-        {blocs.map((bloc, index) =>
-          <div className="bloc" key={bloc.texte + index}>
-            <h5 className="titre-bloc">{bloc && bloc.titre || ''}</h5>
-            <p className="texte">{typeof bloc == "string" ? bloc : bloc && parse(bloc.texte)}</p>
-          </div>
-        )}
-        {titre && !titrePremier && <h1 className="titre">{titre}</h1>}
-        {sousTitre && !titrePremier && <h3 className="sous-titre">{sousTitre}</h3>}
-        {blocs2 && blocs2.map((bloc, index) =>
-          <div className="bloc" key={bloc.texte + index}>
-            <h5 className="titre-bloc">{parse(bloc && bloc.titre || '')}</h5>
-            <p className="texte">{typeof bloc == "string" ? bloc : bloc && parse(bloc.texte)}</p>
-          </div>
+        {titre && <h1 className="titre">{titre}</h1>}
+        {sousTitre && <h3 className="sous-titre">{sousTitre}</h3>}
+        {blocs.map((bloc, index) => (bloc && bloc.texte &&
+          <div className="bloc" key={`bloc-${index}`} style={{ backgroundColor: bloc.couleur_de_fond, color: bloc.couleur_de_texte }}>
+            {parse(bloc.texte)}
+          </div>)
         )}
       </article>
     </section>

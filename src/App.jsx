@@ -25,7 +25,6 @@ export default function App() {
 
   return (
     <div className="App">
-      {console.log(donnees)}
       {donnees &&
         <DonneesSiteContexte.Provider value={donnees}>
           <Entete />

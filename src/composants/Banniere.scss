@@ -35,8 +35,8 @@
                 margin-right: 8rem;
             }
 
-            .titre-bloc {
-                text-align: center;
+            & > * {
+              color: inherit;
             }
         }
 
