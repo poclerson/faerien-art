@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6, p, span, input {
     color: map-get($couleurs, texte)
 }
 
-h1, h2, h3 {
+.titre, .sous-titre {
     font-family: 'Cardinal', serif;
     font-family: 'Cardinal Alternate', serif;
 }
@@ -36,4 +36,4 @@ p {
     display: inline-block;
     clear: both;
     line-break: strict;
-}
+} 

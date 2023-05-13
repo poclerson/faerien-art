@@ -33,7 +33,7 @@ export default function Accueil({ imgBanniere }) {
               >
                 <h1 className="titre">{projet.acf.titre}</h1>
               </div>
-              <h4 className="sous-titre">{projet.acf.sous_titre}</h4>
+              <h4>{projet.acf.sous_titre}</h4>
             </Link>
           )}
 
