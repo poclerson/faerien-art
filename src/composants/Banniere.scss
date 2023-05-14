@@ -23,16 +23,19 @@
         gap: 2.5vh;
 
         .bloc {
-            max-width: 60vw;
+            max-width: 80vw;
             align-self: center;
             @include fond-blanc-flou(20px);
 
-            &:nth-child(odd) {
-                margin-left: 8rem;
-            }
+            @include media(tablette) {
+              max-width: 60vw;
+              &:nth-child(odd) {
+                  margin-left: 8rem;
+              }
 
-            &:nth-child(even) {
-                margin-right: 8rem;
+              &:nth-child(even) {
+                  margin-right: 8rem;
+              }
             }
 
             & > * {
