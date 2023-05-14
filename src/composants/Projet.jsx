@@ -5,7 +5,6 @@ import Retour from './Retour';
 import SectionTexte from './SectionTexte';
 import SectionImage from './SectionImage';
 import SectionImageTexte from './SectionImageTexte';
-import useObtenirParID from '../hooks/useObtenirParID'
 
 import { useParams } from 'react-router-dom'
 
@@ -23,7 +22,7 @@ export default function Projet({ donnees }) {
         titre={projet.acf.titre}
         sousTitre={projet.acf.slogan}
         image={projet.acf.image_de_presentation}
-        blocs={[projet.acf.description]}
+        blocs={[{ texte: projet.acf.description }]}
       />
       <div className="contenu">
         {sections.reverse().map(function (section) {

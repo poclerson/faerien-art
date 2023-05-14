@@ -20,7 +20,7 @@ export default function App() {
   ])
 
   const urlBanniere = (pages, slug) => {
-    return pages.filter(page => page.slug === slug)[0].acf.banniere;
+    return pages.filter(page => page.slug === slug)[0];
   }
 
   return (
@@ -28,6 +28,7 @@ export default function App() {
       {donnees &&
         <DonneesSiteContexte.Provider value={donnees}>
           <Entete />
+          {console.log(donnees.pages)}
           <Routes>
             {/* <Route exact path={'/*'} element={<Navigate to='/accueil' />} /> */}
             <Route path='/' element={
@@ -39,7 +40,7 @@ export default function App() {
             </Route>
             <Route path=':donneeId' element={<Projet donnees={donnees} />} />
             <Route path='/origine' element={
-              <Origine imgBanniere={urlBanniere(donnees.pages, 'origine')} />
+              <Origine imgBanniere={urlBanniere(donnees.pages, 'origine').acf.banniere} titre={urlBanniere(donnees.pages, 'origine').title} />
             } />
           </Routes>
           <PiedPage />
