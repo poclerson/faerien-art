@@ -6,12 +6,13 @@ import DonneesSiteContexte from '../Contexte';
 import { useContext } from 'react';
 
 export default function Accueil({ imgBanniere }) {
-  const { projets, blocs_accueil } = useContext(DonneesSiteContexte);
+  const { projets, blocs_accueil, pages } = useContext(DonneesSiteContexte);
+  const page = pages.filter(page => page.slug === 'accueil')[0]
   return (
     projets &&
     <section className="Accueil">
       <Banniere
-        titre="Faerien art"
+        titre={page.title}
         blocs={blocs_accueil.map(bloc => bloc.acf && bloc.acf).filter(bloc => bloc)}
         image={imgBanniere}
       />
