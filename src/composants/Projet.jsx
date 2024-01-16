@@ -8,10 +8,14 @@ import SectionImageTexte from './SectionImageTexte';
 
 import { useParams } from 'react-router-dom'
 
+import parse from 'html-react-parser'
+
 export default function Projet({ donnees }) {
   const id = useParams();
 
   const projet = donnees.projets.filter(_projet => _projet.acf.titre == id.donneeId)[0];
+  const { content } = projet
+  const { titre, slogan, image_de_presentation, description } = projet.acf
 
   const sections = donnees.sections.filter(section =>
     projet.acf.sections.filter(sectionProjet => sectionProjet.id == section.id)
@@ -19,12 +23,13 @@ export default function Projet({ donnees }) {
   return (
     <li className="Projet">
       <Banniere
-        titre={projet.acf.titre}
-        sousTitre={projet.acf.slogan}
-        image={projet.acf.image_de_presentation}
-        blocs={[{ texte: projet.acf.description }]}
+        titre={titre}
+        sousTitre={slogan}
+        image={image_de_presentation}
+        blocs={[{ texte: description }]}
       />
       <div className="contenu">
+        {content && parse(content)}
         {sections.reverse().map(function (section) {
           switch (section.acf.section_type) {
             case 'texte':

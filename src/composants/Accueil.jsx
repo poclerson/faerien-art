@@ -4,20 +4,23 @@ import Banniere from './Banniere';
 import { Outlet, Link } from 'react-router-dom';
 import DonneesSiteContexte from '../Contexte';
 import { useContext } from 'react';
+import parse from 'html-react-parser'
 
 export default function Accueil({ imgBanniere }) {
   const { projets, blocs_accueil, pages } = useContext(DonneesSiteContexte);
   const page = pages.filter(page => page.slug === 'accueil')[0]
+  const { title, content } = page
+
   return (
     projets &&
     <section className="Accueil">
       <Banniere
-        titre={page.title}
+        titre={title}
         blocs={blocs_accueil.map(bloc => bloc.acf && bloc.acf).filter(bloc => bloc)}
         image={imgBanniere}
       />
       <div className="contenu">
-        <h4 className="titre-description">[EXPLORER ET SOUTENIR]</h4>
+        {content && parse(content)}
         <ul className="liste-projets">
           {projets.map(projet =>
             <Link
