@@ -1,5 +1,6 @@
 # react
 node_modules/
+build/
 
 # extensions
 *.DS_Store

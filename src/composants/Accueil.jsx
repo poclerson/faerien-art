@@ -17,7 +17,6 @@ export default function Accueil({ imgBanniere }) {
         image={imgBanniere}
       />
       <div className="contenu">
-        <h1 className="titre">Les projets</h1>
         <h4 className="titre-description">[EXPLORER ET SOUTENIR]</h4>
         <ul className="liste-projets">
           {projets.map(projet =>
