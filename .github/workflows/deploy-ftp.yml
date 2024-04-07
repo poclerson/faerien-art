@@ -28,6 +28,7 @@ jobs:
     steps:
       - name: Check secrets
         run: |
+          env
           echo $FTP_SERVER
           echo $FTP_USERNAME
           echo $FTP_PASSWORD
