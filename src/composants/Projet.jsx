@@ -16,7 +16,7 @@ export default function Projet() {
   const donnees = useContext(DonneesSiteContexte)
   const id = useParams();
 
-  const projet = donnees.projets.filter(_projet => _projet.acf.titre == id.donneeId)[0];
+  const projet = donnees.projets.filter(_projet => _projet.acf.titre === id.donneeId)[0];
   const { content } = projet
   const { titre, slogan, image_de_presentation, description } = projet.acf
 

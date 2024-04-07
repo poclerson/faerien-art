@@ -18,7 +18,7 @@ export default function SectionTexte({
       <div className="information">
         <div className="bloc-sur-bouton">
           <h4>{sousTitre}</h4>
-          <p className="texte">{texte[0] == '<' ?
+          <p className="texte">{texte[0] === '<' ?
             <ul className="texte-liste">
               {parse(texte.replaceAll(
                 '<p>', '<li class="item-liste">'

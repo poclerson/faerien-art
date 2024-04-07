@@ -31,6 +31,6 @@ export default function useObtenirMultiples(chemins = [], fournisseur = 'wp' || 
     }
 
     obtenirArticles();
-  }, []);
+  }, [chemins, fournisseur]);
   return articles;
 }
