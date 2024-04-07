@@ -2,6 +2,8 @@
 
 name: Deploy FTP
 
+concurrency: deploy
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "app" branch
@@ -17,6 +19,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    environment: deploy
+    concurrency: deploy
     env:
       FTP_SERVER: ${{ secrets.FTP_SERVER }}
       FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
