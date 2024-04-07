@@ -44,6 +44,10 @@ jobs:
 
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         with:
           server: $FTP_SERVER
           username: $FTP_USERNAME
