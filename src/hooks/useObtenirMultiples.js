@@ -20,12 +20,7 @@ export default function useObtenirMultiples(chemins = [], fournisseur = 'wp' || 
         fetch(wp.traiterRequete(chemin, fournisseur)))).then(
         // Transformer chaque élément de la promesse en json
         reponses => Promise.all(reponses.map(reponse => reponse.json()))
-        // reponses => console.log(reponses)
       ).then(
-        /*
-            Attribuer une clé d'après les chemins à chaque item de la promesse
-            afin de permettre la destructuration
-        */
         reponse => setArticles(reponse.reduce(
           (precedent, courant, index) => ({
             ...precedent,

@@ -7,7 +7,7 @@ import Accueil from './composants/Accueil';
 import Origine from './composants/Origine';
 import Projet from './composants/Projet';
 
-import useObtenirMultiples from './hooks/useObtenir';
+import useObtenirMultiples from './hooks/useObtenirMultiples';
 import DonneesSiteContexte from './Contexte';
 
 export default function App() {
@@ -36,9 +36,9 @@ export default function App() {
               />
             }>
             </Route>
-            <Route path=':donneeId' element={<Projet donnees={donnees} />} />
+            <Route path=':donneeId' element={<Projet />} />
             <Route path='/origine' element={
-              <Origine donnees={donnees} imgBanniere={urlBanniere(donnees.pages, 'origine')} />
+              <Origine imgBanniere={urlBanniere(donnees.pages, 'origine')} />
             } />
           </Routes>
           <PiedPage />
