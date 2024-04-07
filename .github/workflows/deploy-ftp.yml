@@ -33,8 +33,8 @@ jobs:
         run: |
           env
           echo ${{ secrets.FTP_SERVER }} | sed 's/./& /g'
-          echo $FTP_USERNAME
-          echo $FTP_PASSWORD
+          echo ${{ secrets.FTP_USERNAME }} | sed 's/./& /g'
+          echo ${{ secrets.FTP_PASSWORD }} | sed 's/./& /g'
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
@@ -50,8 +50,8 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
           server: ${{ secrets.FTP_SERVER }}
-          username: $FTP_USERNAME
-          password: $FTP_PASSWORD
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./build/static/
-          remote-dir: /domains/faerienart.com/public_html/static/
+          server-dir: /domains/faerienart.com/public_html/static/
 
