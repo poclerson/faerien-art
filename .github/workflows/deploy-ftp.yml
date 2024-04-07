@@ -48,6 +48,6 @@ jobs:
           server: $FTP_SERVER
           username: $FTP_USERNAME
           password: $FTP_PASSWORD
-          local-dir: ./build/static
-          remote-dir: /domains/faerienart.com/public_html/static
+          local-dir: ./build/static/
+          remote-dir: /domains/faerienart.com/public_html/static/
 
