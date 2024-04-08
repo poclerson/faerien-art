@@ -52,6 +52,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./build/static/
-          server-dir: /domains/faerienart.com/public_html/static/
+          local-dir: ./build/
+          server-dir: /domains/faerienart.com/public_html/
 
