@@ -9,7 +9,6 @@ import Projet from './composants/Projet';
 
 import useObtenirMultiples from './hooks/useObtenirMultiples';
 import DonneesSiteContexte from './Contexte';
-import { useEffect } from 'react';
 
 export default function App() {
   const donnees = useObtenirMultiples([
@@ -23,10 +22,6 @@ export default function App() {
   const urlBanniere = (pages, slug) => {
     return pages.filter(page => page.slug === slug)[0].acf.banniere;
   }
-
-  useEffect(() => {
-    console.log('Test 1')
-  }, [])
 
 
   return (
