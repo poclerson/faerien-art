@@ -1,9 +1,9 @@
 name: Deploy FTP
 
+concurrency: deploy
+
 on:
   push:
-    branches: [ "prod" ]
-  pull_request:
     branches: [ "prod" ]
 
   # Allows you to run this workflow manually from the Actions tab
