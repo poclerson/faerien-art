@@ -2,7 +2,9 @@ name: Deploy FTP
 
 on:
   push:
-    branches: [ "app" ]
+    branches: [ "prod" ]
+  pull_request:
+    branches: [ "prod" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,13 +19,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check secrets
-        run: |
-          env
-          echo ${{ secrets.FTP_SERVER }} | sed 's/./& /g'
-          echo ${{ secrets.FTP_USERNAME }} | sed 's/./& /g'
-          echo ${{ secrets.FTP_PASSWORD }} | sed 's/./& /g'
-
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
