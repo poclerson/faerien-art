@@ -1,7 +1,6 @@
 import './Projet.scss';
 
 import Banniere from './Banniere';
-import Retour from './Retour';
 import SectionTexte from './SectionTexte';
 import SectionImage from './SectionImage';
 import SectionImageTexte from './SectionImageTexte';
