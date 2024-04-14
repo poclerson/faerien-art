@@ -25,7 +25,7 @@ export default function Projet() {
   const sections = donnees.sections.filter(({ id: sectionId }) => sectionsIds.includes(sectionId))
 
   return (
-    <li className="Projet">
+    <section className="Projet">
       <Banniere
         titre={titre}
         sousTitre={slogan}
@@ -38,6 +38,7 @@ export default function Projet() {
           switch (section.acf.section_type) {
             case 'texte':
               return <SectionTexte
+                key={section.id}
                 sousTitre={section.acf.titre}
                 image={section.acf.image}
                 texte={section.acf.description}
@@ -47,10 +48,12 @@ export default function Projet() {
               />
             case 'image':
               return <SectionImage
+                key={section.id}
                 image={section.acf.image}
               />
             case 'imageTexte':
               return <SectionImageTexte
+                key={section.id}
                 sousTitre={section.acf.titre}
                 image={section.acf.image}
                 texte={section.acf.description}
@@ -60,7 +63,6 @@ export default function Projet() {
           }
         })}
       </div>
-      <Retour lien={'/'} />
-    </li>
+    </section>
   )
 }
