@@ -23,21 +23,22 @@ export default function Accueil({ imgBanniere }) {
         {content && parse(content)}
         <ul className="liste-projets">
           {projets.map(projet =>
-            <Link
-              key={projet.id}
-              to={projet.acf.titre + ""}
-              className="miniature-projet"
-            >
-              <div
-                className="image-titre-projet"
-                style={{
-                  backgroundImage: `url(${projet.acf.image_de_presentation})`
-                }}
+            <li className="miniature-projet" key={projet.id}>
+              <Link
+                key={projet.id}
+                to={projet.acf.titre + ""}
               >
-                <h1 className="titre">{projet.acf.titre}</h1>
-              </div>
-              <h4>{projet.acf.sous_titre}</h4>
-            </Link>
+                <div
+                  className="image-titre-projet"
+                  style={{
+                    backgroundImage: `url(${projet.acf.image_de_presentation})`
+                  }}
+                >
+                  <h1 className="titre">{projet.acf.titre}</h1>
+                </div>
+                <h4>{projet.acf.sous_titre}</h4>
+              </Link>
+            </li>
           )}
 
         </ul>
