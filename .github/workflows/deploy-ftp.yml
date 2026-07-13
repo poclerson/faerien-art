@@ -28,6 +28,13 @@ jobs:
       - name: Build NPM project
         run: npm run build
 
+      - name: Debug FTP connection
+        run: |
+          curl -v --ftp-method nocwd ftp://${{ secrets.FTP_SERVER }}:2222/ \
+            --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" \
+            --ssl-reqd \
+            --connect-timeout 15
+
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
